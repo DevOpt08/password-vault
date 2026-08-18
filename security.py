@@ -19,10 +19,10 @@ def verify_password(entered_password: str, stored_password: bytes) -> bool:
     
 if __name__ == "__main__":
     
-    gmail = hash_password('haziq@123')
+    gmail = hash_password('test@123')
 
-    correct = verify_password('haziq@123',gmail)
-    incorrect = verify_password('Haziq@12321', gmail)
+    correct = verify_password('test@123',gmail)
+    incorrect = verify_password('Test@12321', gmail)
 
     print(correct)    
     print(incorrect)    

@@ -22,7 +22,7 @@ if __name__ == "__main__":
     
     test_dict = {
         'service' : 'Rockstar Games',
-       'username' : 'haziq.18',
+       'username' : 'user.18',
        'password' : 'set'
     }
     
