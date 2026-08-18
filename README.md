@@ -75,4 +75,4 @@ This project pulled together the core Python I'd been building toward — classe
 
 It's a small program, but every decision in it was made on purpose.
 
-Built as part of a structured, mentor-guided path toward backend development. Phase 0 of 6.
+Built as part of a structured path towards backend development. Phase 0 of 6.
