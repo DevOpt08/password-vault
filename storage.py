@@ -3,10 +3,12 @@ import json
 class CorruptVaultError(Exception):
     pass
 
+# ---- Creates a new JSON file at desired path ---- #
 def save_vault(vault: dict, path: str) -> None:
     with open(path, 'w') as f:
         json.dump(vault, f)
-        
+
+# ---- Checks and loads existing vault | Handles corrupt or missing file error ---- #       
 def load_vault(path: str) -> dict:
     try:
         with open(path, 'r') as f:

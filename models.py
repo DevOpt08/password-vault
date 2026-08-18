@@ -1,3 +1,4 @@
+# ---- Written while learning OOP ---- #
 class PasswordEntry:
     
     def __init__(self, service: str, username: str, password: str) -> None:
@@ -15,4 +16,3 @@ if __name__ == "__main__":
     
     rockstar_entry = PasswordEntry('Rockstar Games', 'Haziq.12', 'ali_12345')
     print(rockstar_entry.describe())
-    print(rockstar_entry.get_password())

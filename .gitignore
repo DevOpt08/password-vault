@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 data.json
 valid.json
+new_data.json

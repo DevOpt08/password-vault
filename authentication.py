@@ -1,8 +1,10 @@
 from security import verify_password, hash_password
 
+# ---- Custom exception for handling authentication errors ---- #
 class AuthenticationError(Exception):
     pass
 
+# ---- Raw decorator for checking password ---- #
 def require_master_password(func):
     def wrapper(*args, **kwargs):
         entered_password = kwargs['entered_password']
@@ -13,20 +15,21 @@ def require_master_password(func):
             raise AuthenticationError('Authentication Failed')
     return wrapper
 
-@require_master_password
-def reveal_password(entered_password: str, master_hash: bytes) ->str :
-    return 'Sensitive data revealed'
-
-if __name__ == '__main__':
-    
+# ---- Testing the decorator works ---- #
+if __name__ == "__main__":
     master_hash = hash_password('Haziq_18')
-    
-    print(reveal_password(entered_password = 'Haziq_18', master_hash = master_hash))
-    
+
+    @require_master_password
+    def _demo(**kwargs) -> str:
+        return "gate opened"
+
+    # correct password → gate opens
+    print(_demo(entered_password='Haziq_18', master_hash=master_hash))
+
+    # wrong password → AuthenticationError
     try:
-        reveal_password(entered_password = 'haziq_18', master_hash = master_hash)
-        
+        _demo(entered_password='wrong', master_hash=master_hash)
     except AuthenticationError as e:
-        print(e)
+        print("Rejected:", e)
        
      

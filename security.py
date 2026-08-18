@@ -2,14 +2,15 @@ import bcrypt
 
 def hash_password(password: str) -> bytes:
     
-# --- Byte conversion and salt generation --- #    
+# ---- Byte conversion and salt generation ---- #    
     password_bytes = password.encode('utf-8')
     salt = bcrypt.gensalt()
 
-# --- Storing Hashed password --- #
+# ---- Storing Hashed password ---- #
     hashed = bcrypt.hashpw(password_bytes, salt)
     return hashed
 
+# ---- Password checker | User entered password with stored hash ---- #
 def verify_password(entered_password: str, stored_password: bytes) -> bool:
         
     encoded_entered = entered_password.encode('utf-8')
